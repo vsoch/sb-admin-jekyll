@@ -1,0 +1,47 @@
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+  <meta name="author" content="{{ site.author.name }}" />
+
+  {% if page.subtitle %}<meta name="description" content="{{ page.subtitle }}">{% endif %}
+
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+
+  {% include google_analytics.html %}
+
+  {% if page.title %}<meta property="og:title" content="{{ page.title }}" />{% else %}<meta property="og:title" content="{{ site.title }}" />{% endif %}
+  {% if page.description %}<meta property="og:description" content="{{ page.description }}">{% else %}<meta property="og:description" content="{{ site.title }}">{% endif %}
+  <meta property="og:type" content="website" />
+
+  {% if page.id %}<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />{% else %}
+  <meta property="og:url" content="{{ site.url }}{{ page.url | remove: '/index.html' | remove: '.html' }}" />
+  <link rel="canonical" href="{{ site.url }}{{ page.url | remove: '/index.html' | remove: '.html' }}" />{% endif %}
+
+  {% if page.image %}<meta property="og:image" content="{{ page.image }}" />
+  <meta name="twitter:image" content="{{ page.share-img }}" />{% elsif site.avatar %}
+  <meta property="og:image" content="{{ site.url }}{{ site.avatar }}" />
+  <meta name="twitter:image" content="{{ site.url }}{{ site.avatar }}" />{% endif %}
+
+  <!-- Twitter summary cards -->
+  {% if site.social-network-links.twitter %}<meta name="twitter:site" content="@{{ site.social-network-links.twitter }}" />
+  <meta name="twitter:creator" content="@{{ site.social-network-links.twitter }}" />{% endif %} 
+  <meta name="twitter:card" content="summary" />
+
+  {% if page.title %}<meta name="twitter:title" content="{{ page.title }}" />{% else %}
+  <meta name="twitter:title" content="{{ site.title }}" />{% endif %}
+
+  {% if page.description %}<meta name="twitter:description" content="{{ page.meta-description }}">
+  {% elsif page.subtitle %}<meta name="twitter:description" content="{{ page.subtitle }}">{% else %}
+  <meta name="twitter:description" content="{{ page.title }}">{% endif %}
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <link href="{{ site.url }}/{{ site.baseurl }}/assets/css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>

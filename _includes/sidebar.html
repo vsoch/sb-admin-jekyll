@@ -1,0 +1,49 @@
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">{{ site.title }} <sup>{{ site.version }}</sup></div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      {% for section in site.data.toc %}{% if section.url %}
+      <li class="nav-item {% if forloop.first %}active{% endif %}">
+        <a class="nav-link" href="{{ site.url }}{{ site.baseurl }}/{{ section.url }}">
+          {% if section.icon %}<i class="fas fa-fw {{ section.icon }}"></i>{% endif %}
+          <span>{{ section.title }}</span></a>
+      </li>{% elsif section.links  %}
+
+      <div class="sidebar-heading">
+        {{ section.title }}
+      </div>{% for link in section.links %}
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse{{ link.title | slugify }}" aria-expanded="true" aria-controls="collapse{{ link.title | slugify }}">
+          {% if link.icon %}<i class="fas fa-fw {{ link.icon }}"></i>{% endif %}
+          <span>{{ link.title }}</span>
+        </a>
+        <div id="collapse{{ link.title | slugify }}" class="collapse" aria-labelledby="heading{{ link.title | slugify }}" data-parent="#accordionSidebar">{% if link.children %}
+          <div class="bg-white py-2 collapse-inner rounded">
+            {% for child in link.children %}{% if child.subtitle %}<h6 class="collapse-header">{{ child.subtitle }}</h6>            <div class="collapse-divider"></div>{% endif %}<a class="collapse-item" href="{{ site.url }}{{ site.baseurl }}/{{ child.url }}">{{ child.title }}</a>{% endfor %}
+          </div>{% endif %}
+        </div>
+      </li>{% endfor %}{% endif %}
+
+      <hr class="sidebar-divider">
+      {% endfor %}
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+<!-- End of Sidebar -->

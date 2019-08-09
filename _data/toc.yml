@@ -1,0 +1,52 @@
+- title: Dashboard
+  icon: fa-tachometer-alt
+  url: /
+- title: Interface
+  links:
+    - title: Components
+      icon: fa-cog
+      children:
+        - title: Buttons
+          subtitle: "Custom Components:"
+          url: "docs/interface/buttons/"
+        - title: Cards
+          url: "docs/interface/cards/"
+    - title: "Utilities"
+      icon: fa-wrench
+      children:
+        - title: Color
+          subtitle: "Custom Utilities:"
+          url: "docs/utilities/colors"
+        - title: Borders
+          url: "docs/utilities/borders"
+        - title: Animations
+          url: "docs/utilities/animations"
+        - title: Other
+          url: "docs/utilities/other"
+- title: "Addons"
+  links:
+    - title: Pages
+      icon: fa-folder
+      children:
+        - title: Login
+          subtitle: "Login Screens:"
+          url: docs/addons/login
+        - title: Register
+          url: docs/addons/register
+        - title: Forgot Password
+          url: docs/addons/forgot-password
+        - title: 404 Page
+          subtitle: "Other Pages:"
+          url: docs/addons/404
+        - title: Blank Page
+          url: docs/addons/blank
+- title: Charts
+  icon: fa-chart-area
+  url: docs/charts/
+- title: Tables
+  icon: fa-table
+  url: docs/tables/
+- title: "About"
+  url: "about"
+- title: "News"
+  url: "news"

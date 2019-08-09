@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  {% include head.html %}
+
+  <body id="page-top">
+    <div id="wrapper">
+    {% include sidebar.html %}
+
+    <div id="content-wrapper" class="d-flex flex-column">
+      <div id="content">
+        {% include navigation.html %}
+        <div class="container-fluid">
+        {{ content }}
+        </div>
+      </div> 
+      {% include footer.html %}
+    </div>  
+    {% include scripts.html %}
+  </body>
+</html>
