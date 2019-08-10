@@ -104,3 +104,14 @@ You can include multiple datasets, each should be in the format "title1:points1|
 The labels would be shared on the X axis by both.
 
 If your dataset is monetary, set currency equal to anything. Otherwise, remove it.
+
+
+### Bar Chart
+
+Finally, a bar chart is easy to include with the following:
+
+```
+{% raw %}{% include charts/bar.html title="Total Revenue" width=12 labels="January,February,March,April,May,June" datasets="Revenue:4215,5312,6251,7841,9821,14984," currency="true" %}{% endraw %}
+```
+
+The variables are the same as they are for the area chart!
