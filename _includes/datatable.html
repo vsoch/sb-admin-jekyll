@@ -1,0 +1,23 @@
+<link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css">
+<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('#{{ include.title | slugify }}').DataTable();
+});</script>
+{% capture datafile %}{{ include.file }}{% endcapture %}
+<div class="card shadow mb-4">
+<div class="card-header py-3">
+  <h6 class="m-0 font-weight-bold text-primary">{{ include.title }}</h6>
+</div>
+<div class="card-body">
+  <div class="table-responsive">
+    <table class="table table-bordered" id="{{ include.title | slugify }}" width="100%" cellspacing="0">
+    <thead>{% for entry in site.data[datafile] %}{% if forloop.first %}<tr>{% for field in entry %}<th>{{ field[0] }}</th>{% endfor %}</tr>{% endif %}{% endfor %}</thead>
+      <tfoot><tr>{% for entry in site.data[datafile] %}{% if forloop.first %}{% for field in entry %}<th>{{ field[0] }}</th>{% endfor %}{% endif %}{% endfor %}</tr></tfoot>
+   <tbody>{% for entry in site.data[datafile] %}<tr>{% for field in entry %}<td>{{ field[1] }}</td>{% endfor %}</tr>{% endfor %}
+   </tbody>
+   </table>
+   </div>
+  </div>
+</div>

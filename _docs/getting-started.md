@@ -163,3 +163,13 @@ Where each entry in data has three values:
  1. The bar title
  2. The bar percentage filled
  3. The bootstrap type (warning, primary, danger, info, success, secondary, etc.)
+
+
+## Tables
+
+A table can be read in directly from a csv file in the _data folder, or yaml if you prefer.
+The file in `_data/tables/example.csv` is an export of candy from [Kaggle](https://www.kaggle.com/fivethirtyeight/the-ultimate-halloween-candy-power-ranking) and we render it on the page like this:
+
+```
+{% raw %}{% include datatable.html title="Datatable Example" file="tables/example.csv" %}{% endraw %}
+```
