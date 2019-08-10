@@ -27,6 +27,9 @@ collections:
   docs:
     output: true
     permalink: /:collection/:path/
+  projects:
+    output: true
+    permalink: /:collection/:path/
 
 
 defaults:
@@ -35,6 +38,11 @@ defaults:
       type: "docs"
     values:
       layout: page
+  - scope:
+      path: "_projects"
+      type: "projects"
+    values:
+      layout: project
   -
     scope:
       path: ""

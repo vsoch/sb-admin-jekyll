@@ -4,11 +4,11 @@ title: sb-admin Jekyll
 subtitle: A Jekyll Template for a beautiful Bootstrap 4 Theme
 ---
 
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Home</h1>
-          </div>
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">Home</h1>
+</div>
 
+{% if site.projects %}{% include project-showcase.html %}{% endif %}
           {% for post in paginator.posts %}<div class="row">
             <div class="col-xl-12 col-lg-11">
               <div class="card shadow mb-4">
