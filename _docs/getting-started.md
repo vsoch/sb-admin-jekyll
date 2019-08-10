@@ -90,3 +90,15 @@ You can include a pie chart in a page as follows:
 ```
 
 Including the chart will also include a card with title, and a dropdown with save button, so we need to provide a column width (4 in the example above, meaning we could fit 3 across). The data and labels should be the same length, and be separated by commas, and the title should be defined.
+
+### Area Chart
+
+An area chart is a line chart that can include one or more lines.
+
+```
+{% raw %}{% include charts/area.html width=8 labels="Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec" title="Candy Sales" datasets="Earnings:0,10000,5000,15000,10000,20000,15000,25000,20000,30000,25000,40000" %}{% endraw %}
+```
+
+You can include multiple datasets, each should be in the format "title1:points1|title2:points2" where a
+":" separates the title for a set of points, and then the two datasets are separated by a pipe "|".
+The labels would be shared on the X axis by both.

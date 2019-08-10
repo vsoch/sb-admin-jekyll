@@ -1,0 +1,142 @@
+{% assign labels = include.labels | split: "," %}
+{% assign datasets = include.datasets | split: "|" %}
+{% if include.width %}{% else %}{% assign include.width = 12 %}{% endif %}{% assign width_large = include.width | plus: 1 %}
+
+<div class="col-xl-{{ include.width }} col-lg-{{ width_large }}">
+    <div class="card shadow mb-{{ include.width }}" style="min-height:450px">
+
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">{{ include.title }}</h6>
+            <div class="dropdown no-arrow">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenu{{ include.title | slugify }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenu{{ include.title | slugify }}">
+                    <div class="dropdown-header">Actions:</div>
+                    <a class="dropdown-item" onclick='saveImage("area-chart-{{ include.title | slugify }}")'>Save Image</a>
+                </div>
+            </div>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+            <div class="chart-area pt-4 pb-2">
+                <canvas id="area-chart-{{ include.title | slugify }}"></canvas>
+            </div><div class="mt-4 text-center small">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- This could be better done to not load script multiple times-->
+<script src="{{ site.url }}{{ site.baseurl }}/assets/js/Chart.min.js"></script>
+<script>
+function saveImage(canvas_id) {
+   var canvas = document.getElementById(canvas_id);
+   canvas.toBlob(function(blob) {
+      var d = new Date();
+      var month = d.getMonth();
+      var year = d.getFullYear();
+      saveAs(blob, month + "-" + year + "-" + canvas_id + ".png");
+   });
+}
+
+// Ensure the saved image has a white background
+var backgroundColor = 'white';
+Chart.plugins.register({
+    beforeDraw: function(c) {
+        var ctx = c.chart.ctx;
+        ctx.fillStyle = backgroundColor;
+        ctx.fillRect(0, 0, c.chart.width, c.chart.height);
+    }
+});
+
+// Set new default font family and font color to mimic Bootstrap's default styling
+Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = '#858796';
+
+// Area Chart Example
+var ctx = document.getElementById("area-chart-{{ include.title | slugify }}");
+var myLineChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: [{% for label in labels %}"{{ label }}"{% if forloop.last %}{% else %},{% endif %}{% endfor %}],
+    datasets: [{% for dataset in datasets %}{% assign dataset_title = dataset | split: ":" | first %}{% assign points = dataset |  replace: dataset_title, "" | replace: ":", "" | split: "," %}{
+      label: "{{ dataset_title}}",
+      lineTension: 0.3,
+      backgroundColor: "rgba(78, 115, 223, 0.05)",
+      borderColor: "rgba(78, 115, 223, 1)",
+      pointRadius: 3,
+      pointBackgroundColor: "rgba(78, 115, 223, 1)",
+      pointBorderColor: "rgba(78, 115, 223, 1)",
+      pointHoverRadius: 3,
+      pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
+      pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+      pointHitRadius: 10,
+      pointBorderWidth: 2,
+      data: [{% for point in points %}{{ point }}{% if forloop.last %}{% else %},{% endif %}{% endfor %}],
+    }{% if forloop.last %}{% else %},{% endif %}{% endfor %}],
+  },
+  options: {
+    {% if include.title %}title: {
+        display: true,
+        fontsize: 14,
+        text: '{{ include.title }}'
+    },{% endif %}
+    maintainAspectRatio: false,
+    layout: {
+      padding: {
+        left: 10,
+        right: 25,
+        top: 0,
+        bottom: 0
+      }
+    },
+    scales: {
+      xAxes: [{
+        time: {
+          unit: 'date'
+        },
+        gridLines: {
+          display: false,
+          drawBorder: false
+        },
+        ticks: {
+          maxTicksLimit: 7
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          maxTicksLimit: 5,
+          padding: 10,        },
+        gridLines: {
+          color: "rgb(234, 236, 244)",
+          zeroLineColor: "rgb(234, 236, 244)",
+          drawBorder: false,
+          borderDash: [2],
+          zeroLineBorderDash: [2]
+        }
+      }],
+    },
+    legend: {
+      display: true,
+      position: "{% if include.legend_position %}{{ include.legend_position }}{% else %}top{% endif %}"
+    },
+    tooltips: {
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      titleMarginBottom: 10,
+      titleFontColor: '#6e707e',
+      titleFontSize: 14,
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 15,
+      yPadding: 15,
+      displayColors: false,
+      intersect: false,
+      mode: 'index',
+      caretPadding: 10
+    }
+  }
+  });
+</script>

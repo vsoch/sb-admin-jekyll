@@ -2,7 +2,7 @@
 {% assign data = include.data | split: "," %}
 {% if include.width %}{% else %}{% assign include.width = 12 %}{% endif %}{% assign width_large = include.width | plus: 1 %}
 <div class="col-xl-{{ include.width }} col-lg-{{ width_large }}">
-    <div class="card shadow mb-{{ include.width }}">
+    <div class="card shadow mb-{{ include.width }}" style="min-height:450px">
 
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
