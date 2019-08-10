@@ -96,6 +96,9 @@ title: Charts
 
 {% include charts/pie.html data="55,30,15" width=4 title="Candy Breakdown" labels="Snickers,Twix,Reeses" %}
 
+{% include charts/bar.html title="Total Revenue" width=12 labels="January,February,March,April,May,June" datasets="Revenue:4215,5312,6251,7841,9821,14984," currency="true" %}
+
+
 <!-- Content Row -->
 <div class="row">
 

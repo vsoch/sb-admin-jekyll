@@ -2,7 +2,7 @@
 {% assign data = include.data | split: "," %}
 {% if include.width %}{% else %}{% assign include.width = 12 %}{% endif %}{% assign width_large = include.width | plus: 1 %}
 <div class="col-xl-{{ include.width }} col-lg-{{ width_large }}">
-    <div class="card shadow mb-{{ include.width }}" style="min-height:450px">
+    <div class="card shadow mb-{{ include.width }}" style="min-height:{% if include.min-height %}{{ include.min-height }}{% else  %}450px{% endif %}">
 
         <!-- Card Header - Dropdown -->
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -11,7 +11,7 @@
                 <a class="dropdown-toggle" href="#" role="button" id="dropdownMenu{{ include.title | slugify }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenu{{ include.title | slugify }}">
                     <div class="dropdown-header">Actions:</div>
                     <a class="dropdown-item" onclick='saveImage("pie-chart-{{ include.title | slugify }}")'>Save Image</a>
                 </div>
