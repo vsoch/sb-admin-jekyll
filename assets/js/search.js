@@ -70,7 +70,7 @@ excluded_in_search: true
 					contentPreview = getPreview(query, item.content, 170),
 					titlePreview = getPreview(query, item.title);
 
-				resultsHTML += "<li><h4><a href='{{ site.baseurl }}" + item.url.trim() + "'>" + titlePreview + "</a></h4><p><small>" + contentPreview + "</small></p></li>";
+                        resultsHTML +='<div class="col-lg-12"><div class="card mb-4 py-3 border-left-primary"><div class="card-body"><h4><a href="{{ site.baseurl }}' + item.url.trim() + '">' + titlePreview + '</a></h4><p><small>' + contentPreview + '</small></p></div></div></div>';
 			});
 
 			searchResultsEl.innerHTML = resultsHTML;
