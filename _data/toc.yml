@@ -1,6 +1,9 @@
 - title: Dashboard
   icon: fa-tachometer-alt
   url: /
+- title: Getting Started
+  icon: fa-star
+  url: docs/getting-started/
 - title: Interface
   links:
     - title: Components

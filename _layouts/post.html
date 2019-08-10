@@ -3,11 +3,12 @@ layout: default
 ---
 
 <div class="container">
-  <div class="row card" style="padding:30px">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+  <div class="row card" style="padding:30px; flex-direction:unset">
+    <div class="col-md-9">
  
      <h2>{{ page.title }}</h2>
      <em>Posted on {{ page.date | date: "%B %-d, %Y" }}</em>
+     <hr>
 
       {% if page.gh-repo %}
         {% assign gh_split =  page.gh-repo | split:'/'  %}
@@ -36,18 +37,11 @@ layout: default
         {{ content }}
       </article>
 
-      {% if page.tags.size > 0 %}
-        <div class="blog-tags">
-          Tags:
-          {% if site.link-tags %}
-          {% for tag in page.tags %}
-            <a href="{{ site.baseurl }}/tags#{{- tag -}}">{{- tag -}}</a>
-          {% endfor %}
-          {% else %}
-            {{ page.tags | join: ", " }}
-          {% endif %}
-        </div>
-      {% endif %}
+      {% if page.tags.size > 0 %}<div class="blog-tags">
+          {% if site.link-tags %}{% for tag in page.tags %}
+            <a href="{{ site.baseurl }}/tags#{{- tag -}}"><span class="badge badge-primary">{{- tag -}}</span></a>
+          {% endfor %}{% else %}{{ page.tags | join: ", " }}{% endif %}
+        </div>{% endif %}
 
       {% if page.social-share %}
         {% include social-share.html %}
@@ -58,6 +52,9 @@ layout: default
       {% endif %}{% if page.next.url %}
       <a style="float:right" href="{{ page.next.url | prepend: site.baseurl }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">{{ page.next.title }} <i class="fas fa-chevron-right fa-sm text-white-50"></i></a>
       {% endif %}
+    </div>
+    {% include toc.html %}
+    <div class="col-md-3" id="toc" data-md-scrollfix>
     </div>
   </div>
 </div>
