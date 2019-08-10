@@ -148,3 +148,18 @@ The same kind of statistic can also be for a progress bar, like this:
 ```
 
 The main difference is providing a percent instead of a value.
+
+
+### Bars
+
+For a group of bars (in a card) you can do the following:
+
+```
+{% raw %}{% include cards/bars.html title="Projects" data="Server Migration,20,danger|Sales Tracking,40,warning|Payout Details,80,info|Account Setup,100,success" width=12 %}{% endraw %}
+```
+
+Where each entry in data has three values:
+
+ 1. The bar title
+ 2. The bar percentage filled
+ 3. The bootstrap type (warning, primary, danger, info, success, secondary, etc.)
