@@ -13,6 +13,7 @@ version: 1
 description: Startbootstrap Theme (Sb admin) for Jekyll
 github_user: vsoch
 github_repo: sb-admin-jekyll
+repo: https://www.github.com/vsoch/sb-admin-jekyll
 
 # --- Navigation bar options --- #
 
