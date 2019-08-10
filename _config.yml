@@ -11,6 +11,8 @@ version: 1
 
 # Short description of your site
 description: Startbootstrap Theme (Sb admin) for Jekyll
+github_user: vsoch
+github_repo: sb-admin-jekyll
 
 # --- Navigation bar options --- #
 

@@ -41,20 +41,9 @@
               </div>
             </li>
 
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="githubDropdown">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <div class="md-header-nav__source">
-          <a class="md-source" data-md-source="github" href="{{ site.repo }}" title="Go to repository">
-          <div class="md-source__icon" style="padding-top:5px">
-            <i class="fa fa-github fa-3x"></i>
-          </div>
-          <div class="md-source__repository">
-            {{ site.github_user }}/{{ site.github_repo }}
-          </div></a>
-        </div>
-      </div>
-
-     </div>
+               <a class="gh-source" data-gh-source="github" style="margin-top:10px" href="{{ site.repo }}" title="Go to repository" data-md-state="done"><i class="fab fa-github fa-2x" style="margin-top:8px; float:left"></i>
+		    <span style="margin-left:10px">{{ site.github_user }}/{{ site.github_repo }}</span><br>
+		  <em><li style="font-size:0.8rem; margin-left:10px;margin-right:5px;float:left;display:inline-block" id='stars'></li> <li style="font-size:0.8rem;float:left;display:inline-block" id="forks"></li></em></a>
 
             <!-- Nav Item - Alerts -->
             <li class="nav-item dropdown no-arrow mx-1">
@@ -196,3 +185,19 @@
         </nav>
         <!-- End of Topbar -->
 
+<script>
+$(document).ready(function() {
+  var url = "https://api.github.com/search/repositories?q={{ site.github_user }}/{{ site.github_repo }}";
+  fetch(url, { 
+      headers: {"Accept":"application/vnd.github.preview"}
+  }).then(function(e) {
+    return e.json()
+  }).then(function(r) {
+     console.log(r.items[0])
+     stars = r.items[0]['stargazers_count']
+     forks = r.items[0]['forks_count']
+     $('#stars').text(stars + " Stars")
+     $('#forks').text(forks + " Forks")
+  });
+});
+</script>
