@@ -115,3 +115,36 @@ Finally, a bar chart is easy to include with the following:
 ```
 
 The variables are the same as they are for the area chart!
+
+
+## Cards
+
+A card can hold a statistic, a progress bar, or general text.
+
+### Statistic
+
+A single statistic might look like this:
+
+<div class="row">
+{% include cards/statistic.html icon="fa-calendar" value="$40,000" title="Earnings (Monthly)" style="primary" %}
+{% include cards/statistic.html icon="fa-dollar-sign" value="$215,000" title="Earnings (Annual)" style="success" %}
+</div>
+
+The code looks like this - notice we've put them both inside a row. Most fields are self-explanatory.
+
+```html
+{% raw %}<div class="row">{% include cards/statistic.html icon="fa-calendar" value="$40,000" title="Earnings (Monthly)" style="primary" %}
+{% include cards/statistic.html icon="fa-dollar-sign" value="$215,000" title="Earnings (Annual)" style="success" %}</div>{% endraw %}
+```
+
+### Progress
+
+The same kind of statistic can also be for a progress bar, like this:
+
+{% include cards/progress.html title="Tasks" icon="fa-clipboard-list" value="50" %}
+
+```html
+{% raw %}{% include cards/progress.html title="Tasks" icon="fa-clipboard-list" percent="50" %}{% endraw %}
+```
+
+The main difference is providing a percent instead of a value.
