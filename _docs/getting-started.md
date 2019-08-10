@@ -171,5 +171,5 @@ A table can be read in directly from a csv file in the _data folder, or yaml if 
 The file in `_data/tables/example.csv` is an export of candy from [Kaggle](https://www.kaggle.com/fivethirtyeight/the-ultimate-halloween-candy-power-ranking) and we render it on the page like this:
 
 ```
-{% raw %}{% include datatable.html title="Datatable Example" file="tables/example.csv" %}{% endraw %}
+{% raw %}{% include datatable.html title="Datatable Example" file="table-example" %}{% endraw %}
 ```
