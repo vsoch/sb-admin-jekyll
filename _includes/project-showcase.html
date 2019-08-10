@@ -5,6 +5,10 @@
   <div class="carousel-inner">{% for project in site.projects %}
     <div class="carousel-item {% if forloop.first %}active{% endif %}">
       <img class="d-block w-100" src="{% if project.image %}{{ project.image }}{% else %}https://picsum.photos/640/200?title={{ project.title }}{% endif %}" alt="{{ project.title }}">
+         <div class="carousel-caption">
+            <h3 style="background-color:rgba(90,92,105,.5);">{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+         </div>
     </div>{% endfor %}
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
