@@ -96,9 +96,11 @@ Including the chart will also include a card with title, and a dropdown with sav
 An area chart is a line chart that can include one or more lines.
 
 ```
-{% raw %}{% include charts/area.html width=8 labels="Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec" title="Candy Sales" datasets="Earnings:0,10000,5000,15000,10000,20000,15000,25000,20000,30000,25000,40000" %}{% endraw %}
+{% raw %}{% include charts/area.html width=8 labels="Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec" title="Candy Sales" datasets="Earnings:0,10000,5000,15000,10000,20000,15000,25000,20000,30000,25000,40000" currency='true' %}{% endraw %}
 ```
 
 You can include multiple datasets, each should be in the format "title1:points1|title2:points2" where a
 ":" separates the title for a set of points, and then the two datasets are separated by a pipe "|".
 The labels would be shared on the X axis by both.
+
+If your dataset is monetary, set currency equal to anything. Otherwise, remove it.
