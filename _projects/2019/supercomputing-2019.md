@@ -1,5 +1,6 @@
 ---
 title: Supercomputing 2019 (SC19)
+image: assets/img/projects/balloons.jpg
 location: Denver, CO
 url: https://sc19.supercomputing.org/
 expires: 2019-11-22

@@ -1,5 +1,6 @@
 ---
 title: PEARC19
+image: assets/img/projects/flowers.jpg
 location: Chicago, IL
 url: https://www.pearc19.pearc.org/
 expires: 2019-08-01
