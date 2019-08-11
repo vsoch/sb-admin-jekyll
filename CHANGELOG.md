@@ -14,4 +14,5 @@ Critical items to know are:
  - changed behaviour
 
 ## [master](https://github.com/vsoch/sb-admin-jekyll/tree/master)
+ - projects, charts, buttons, tags, and search added  (0.0.1)
  - start of theme  (0.0.0)
