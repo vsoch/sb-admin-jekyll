@@ -63,27 +63,8 @@ defaults:
 # Important: you must keep the "name" parameter, everything else you can remove
 author:
   name: "vsoch"
-
-# Select your active Social Network Links.
-social-network-links:
-#  rss: false
-#  email: "someone@example.com"
-#  facebook:
   github: vsoch
   twitter: vsoch
-#  reddit:
-#  google-plus:
-#  linkedin:
-#  xing:
-#  stackoverflow:
-#  snapchat:
-#  instagram:
-#  youtube:
-#  spotify:
-#  telephone:
-#  steam:
-#  twitch:
-#  yelp:
 
 # Select which share links to show in posts
 share-links-active:

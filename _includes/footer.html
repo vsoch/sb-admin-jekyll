@@ -1,23 +1,16 @@
 <footer class="sticky-footer bg-white">
   <div class="container my-auto">
     <div class="copyright text-center my-auto">
-      <span>&copy; {{ site.author.name }} &nbsp;&bull;&nbsp; {{ site.time | date: '%Y' }}</span>
+      <span style="margin-bottom:20px">&copy; {{ site.author.name }} &nbsp;&bull;&nbsp; {{ site.time | date: '%Y' }}</span><br><br>
+	  {% if site.author.facebook %}<a target="_blank" href="https://www.facebook.com/{{ site.author.facebook }}" style="background-color:#4267b2" class="btn btn-primary btn-circle btn-sm">
+	    <i style="color:white" class="fab fa-facebook-f"></i>
+	  </a>{% endif %}{% if site.author.github %}
+	  <a target="_blank" href="https://www.github.com/{{ site.author.github }}" style="background-color:black" class="btn btn-circle btn-sm">
+	    <i class="fab fa-2x fa-github" style='color:white'></i>
+	  </a>{% endif %}{% if site.author.twitter %}
+	  <a target="_blank" href="https://www.twitter.com/{{ site.author.twitter }}" style="background-color:#38A1F3" class="btn btn-circle btn-sm">
+	    <i class="fab fa-twitter" style="color:white"></i>
+	  </a>{% endif %}
     </div>
-
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<ul class="list-inline text-center footer-links">
-  {%- for link in site.social-network-links -%}
-    {%- assign curkey = link[0] -%}
-    {%- assign element = site.data.SocialNetworks[curkey] -%}
-    <li>{%- if curkey == 'rss' -%}
-      <a href="{{ '/feed.xml' | prepend: site.baseurl }}" title="{{ element.name }}">{%- else -%}<a href="{{element.baseURL}}{{ site.social-network-links[curkey] }}" title="{{ element.name }}">{%- endif -%}
-      </a>
-    </li>
-  {%- endfor -%}
-</ul>
-      </div>
-    </div>
-
   </div>
 </footer>
