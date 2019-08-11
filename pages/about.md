@@ -1,10 +1,8 @@
 ---
-layout: default
-title: About sb-admin Jekyll
+layout: wide
+title: About
 permalink: /about/
 ---
-
-## About
 
 The sb-admin Jekyll theme is maintained at [vsoch/sb-admin-jekyll](https://www.github.com/vsoch/sb-admin-jekyll)
 and is a Jekyll-ized port of the Startbootstrap [sb-admin-2](https://startbootstrap.com/themes/sb-admin-2/).

@@ -27,7 +27,9 @@ $(document).ready(function() {
                  children.append(content);
               }
            })
-           $("#link_" + div_id).append(children);
+           if(children.text().length > 0 ) {
+             $("#link_" + div_id).append(children);
+           }
       });
 
       // Adjust toc on scroll

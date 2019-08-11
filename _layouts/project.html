@@ -2,26 +2,23 @@
 layout: default
 ---
 
-<div class="container">
-  <div class="row card" style="padding:30px; flex-direction:unset">
+<div class="container-fluid">
+  <div class="row card" style="padding:30px; flex-direction:unset;">
     <div class="col-md-9">
- 
-     <h2>{{ page.title }}</h2>
-     <em>Posted on {{ page.date | date: "%B %-d, %Y" }}</em>
+     <h1 style="margin-bottom:20px" class="mb-2 text-gray-800">{{ page.title }}</h1>
      <hr>
-      <article role="main" id="the-content" class="blog-post">
-        {{ content }}
-      </article>
+
+     {% if page.img %}<img src="{{ site.baseurl }}{{ page.img }}">{% endif %}
+
+     <div id="the-content">
+      {{ content }}
+     </div>
 
       {% if page.tags.size > 0 %}<div class="blog-tags">
           {% if site.link-tags %}{% for tag in page.tags %}
             <a href="{{ site.baseurl }}/tags#{{- tag -}}"><span class="badge badge-primary">{{- tag -}}</span></a>
           {% endfor %}{% else %}{{ page.tags | join: ", " }}{% endif %}
         </div>{% endif %}
-
-      {% if page.social-share %}
-        {% include social-share.html %}
-      {% endif %}<br>
 
       {% if page.previous.url %}
       <a style="float:left"  href="{{ page.previous.url | prepend: site.baseurl }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-chevron-left fa-sm text-white-50"></i> {{ page.previous.title }}</a>

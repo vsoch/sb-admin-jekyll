@@ -173,3 +173,29 @@ The file in `_data/tables/example.csv` is an export of candy from [Kaggle](https
 ```
 {% raw %}{% include datatable.html title="Datatable Example" file="table-example" %}{% endraw %}
 ```
+
+## Buttons
+
+Buttons are easy to include, here are split buttons:
+
+{% include buttons/split-button.html style="primary" title="Split Button Primary" icon="fa-flag"%}
+{% include buttons/split-button.html style="success" title="Split Button Success" icon="fa-check"%}
+{% include buttons/split-button.html style="info" title="Split Button Info" icon="fa-info-circle"%}
+{% include buttons/split-button.html style="warning" title="Split Button Warning" icon="fa-exclamation-triangle"%}
+{% include buttons/split-button.html style="danger" title="Split Button Danger" icon="fa-trash"%}
+{% include buttons/split-button.html style="secondary" title="Split Button Secondary" icon="fa-arrow-right"%}
+{% include buttons/split-button.html style="light" title="Split Button Primary" icon="fa-arrow-right"%}
+
+
+The code looks like this, and if you add a url parameter, the buttons will link there.
+
+```html{% raw %}
+{% include buttons/split-button.html style="primary" title="Split Button Primary" icon="fa-flag"%}
+{% include buttons/split-button.html style="success" title="Split Button Success" icon="fa-check"%}
+{% include buttons/split-button.html style="info" title="Split Button Info" icon="fa-info-circle"%}
+{% include buttons/split-button.html style="warning" title="Split Button Warning" icon="fa-exclamation-triangle"%}
+{% include buttons/split-button.html style="danger" title="Split Button Danger" icon="fa-trash"%}
+{% include buttons/split-button.html style="secondary" title="Split Button Secondary" icon="fa-arrow-right"%}
+{% include buttons/split-button.html style="light" title="Split Button Primary" icon="fa-arrow-right"%}
+{% endraw %}
+```

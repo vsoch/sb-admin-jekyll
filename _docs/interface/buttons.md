@@ -104,55 +104,22 @@ title: Buttons
 </div>
 <div class="card-body">
   <p>Works with any button colors, just use the <code>.btn-icon-split</code> class and the markup in the examples below. The examples below also use the <code>.text-white-50</code> helper class on the icons for additional styling, but it is not required.</p>
-  <a href="#" class="btn btn-primary btn-icon-split">
-    <span class="icon text-white-50">
-      <i class="fas fa-flag"></i>
-    </span>
-    <span class="text">Split Button Primary</span>
-  </a>
+
+  {% include buttons/split-button.html style="primary" title="Split Button Primary" icon="fa-flag"%}
   <div class="my-2"></div>
-  <a href="#" class="btn btn-success btn-icon-split">
-    <span class="icon text-white-50">
-      <i class="fas fa-check"></i>
-    </span>
-    <span class="text">Split Button Success</span>
-  </a>
+  {% include buttons/split-button.html style="success" title="Split Button Success" icon="fa-check"%}
   <div class="my-2"></div>
-  <a href="#" class="btn btn-info btn-icon-split">
-    <span class="icon text-white-50">
-      <i class="fas fa-info-circle"></i>
-    </span>
-    <span class="text">Split Button Info</span>
-  </a>
+  {% include buttons/split-button.html style="info" title="Split Button Info" icon="fa-info-circle"%}
   <div class="my-2"></div>
-  <a href="#" class="btn btn-warning btn-icon-split">
-    <span class="icon text-white-50">
-      <i class="fas fa-exclamation-triangle"></i>
-    </span>
-    <span class="text">Split Button Warning</span>
-  </a>
+  {% include buttons/split-button.html style="warning" title="Split Button Warning" icon="fa-exclamation-triangle"%}
   <div class="my-2"></div>
-  <a href="#" class="btn btn-danger btn-icon-split">
-    <span class="icon text-white-50">
-      <i class="fas fa-trash"></i>
-    </span>
-    <span class="text">Split Button Danger</span>
-  </a>
+  {% include buttons/split-button.html style="danger" title="Split Button Danger" icon="fa-trash"%}
   <div class="my-2"></div>
-  <a href="#" class="btn btn-secondary btn-icon-split">
-    <span class="icon text-white-50">
-      <i class="fas fa-arrow-right"></i>
-    </span>
-    <span class="text">Split Button Secondary</span>
-  </a>
+  {% include buttons/split-button.html style="secondary" title="Split Button Secondary" icon="fa-arrow-right"%}
   <div class="my-2"></div>
-  <a href="#" class="btn btn-light btn-icon-split">
-    <span class="icon text-gray-600">
-      <i class="fas fa-arrow-right"></i>
-    </span>
-    <span class="text">Split Button Primary</span>
-  </a>
+  {% include buttons/split-button.html style="light" title="Split Button Primary" icon="fa-arrow-right"%}
   <div class="mb-4"></div>
+
   <p>Also works with small and large button classes!</p>
   <a href="#" class="btn btn-primary btn-icon-split btn-sm">
     <span class="icon text-white-50">
